@@ -39,6 +39,6 @@ export class AppComponent {
       this.management = "- Management";
     }
 
-    this.companyLogo = 
+    this.companyLogo = "";
   }
 }
