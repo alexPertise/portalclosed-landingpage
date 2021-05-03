@@ -6,7 +6,8 @@ import { Component } from "@angular/core";
   styleUrls: ["./landing-page.component.css"]
 })
 export class AppComponent {
-  userLang: string = navigator.language;
+  currentLanguage: string = navigator.language.substring(0, 2);
+  topRightLanguageTxt: string;
 
   title: string;
   subTitle: string;
@@ -19,9 +20,42 @@ export class AppComponent {
   companyLogo: string;
 
   constructor() {
-    if (this.userLang.startsWith("en")) {
+    this.getCurrentLanguage();
+    this.getLanguageTxt();
+
+    this.companyLogo =
+      "https://stackblitz.com/files/portalclosed-landingpage/github/alexPertise/portalclosed-landingpage/2021-03-05_15-44/evolupharma.uxpertise 1.png";
+  }
+
+  public changeCurrentLanguage() {
+    if (this.topRightLanguageTxt == "en") {
+      this.topRightLanguageTxt = "fr";
+    } else if (this.topRightLanguageTxt == "fr") {
+      this.topRightLanguageTxt = "en";
+    }
+    this.getLanguageTxt();
+  }
+
+  private getCurrentLanguage() {
+    if (this.currentLanguage == "en") {
+      this.topRightLanguageTxt = "fr";
+    } else if (this.currentLanguage == "fr") {
+      this.topRightLanguageTxt = "en";
+    }
+  }
+
+  private getLanguageTxt() {
+    if (this.topRightLanguageTxt == "fr") {
       this.title = "Please note";
       this.subTitle = "This portal is no longer active";
+      this.subTitleText = "Good luck!";
+      this.text1 = "Thinking of launching your own educational business?";
+      this.cta = "Contact us";
+      this.text2 = "to find out if our solutions are right for you.";
+      this.management = "- Management";
+    } else if (this.topRightLanguageTxt == "en") {
+      this.title = "Veuillez noter";
+      this.subTitle = "Ce portail n'est plus actif";
       this.subTitleText = "Bonne continuation !";
       this.text1 =
         "Vous envisagez de lancer votre propre entreprise pédagogique ?";
@@ -29,16 +63,6 @@ export class AppComponent {
       this.text2 =
         "pour découvrir si nos solutions sont adaptées à vos besoins.";
       this.management = "— La direction";
-    } else {
-      this.title = "Veuillez noter";
-      this.subTitle = "Ce portail n'est plus actif";
-      this.subTitleText = "Good luck!";
-      this.text1 = "Thinking of launching your own educational business?";
-      this.cta = "Contact us";
-      this.text2 = "to find out if our solutions are right for you.";
-      this.management = "- Management";
     }
-
-    this.companyLogo = " ";
   }
 }

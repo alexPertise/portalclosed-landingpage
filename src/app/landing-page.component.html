@@ -1,16 +1,22 @@
-<div class="header-container">
-  <img src="{{companyLogo}}" />
+<div>
+  <div class="header-container">
+    <img src="{{companyLogo}}" />
+    <div class="language-switcher">
+      <span (click)="changeCurrentLanguage()">{{topRightLanguageTxt}}</span>
+      <i class="f0dd"></i>
+    </div>
+  </div>
   <div>
     <div class="landing-page-container">
       <h1>{{title}}</h1>
       <h2>{{subTitle}}</h2>
       <h2>{{subTitleText}}</h2>
-      <landing-svg></landing-svg>
-      <span>{{text1}}</span>
-      <span><span class="cta-link">{{cta}}</span> {{text2}}</span>
+      <landing-svg class="landing-page-svg"></landing-svg>
+      <span class="first-text">{{text1}}</span>
+      <span class="second-text"><span class="cta-link">{{cta}}</span> {{text2}}</span>
       <span class="management-txt">{{management}}</span>
       <img
-        src="https://raw.githubusercontent.com/alexPertise/portalclosed-landingpage/master/Logotype_color.png"
+        src="https://stackblitz.com/files/portalclosed-landingpage/github/alexPertise/portalclosed-landingpage/master/Logotype_color.png"
         alt="logo-uxpertise"
       />
     </div>
