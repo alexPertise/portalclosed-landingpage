@@ -16,6 +16,8 @@ export class AppComponent {
   cta: string;
   management: string;
 
+  companyLogo: string;
+
   constructor() {
     if (this.userLang.startsWith("en")) {
       this.title = "Please note";
@@ -36,5 +38,7 @@ export class AppComponent {
       this.text2 = "to find out if our solutions are right for you.";
       this.management = "- Management";
     }
+
+    this.companyLogo = 
   }
 }
