@@ -17,14 +17,20 @@ export class AppComponent {
   cta: string;
   management: string;
 
-  companyLogo: string;
+  companyLogo: {};
+  currentUrl: string = window.location.host;
 
   constructor() {
     this.getCurrentLanguage();
     this.getLanguageTxt();
 
-    this.companyLogo =
-      "https://stackblitz.com/files/portalclosed-landingpage/github/alexPertise/portalclosed-landingpage/2021-03-05_15-44/evolupharma.uxpertise 1.png";
+    this.companyLogo = {
+      "portalclosed-landingpage.stackblitz.io":
+        "https://stackblitz.com/files/portalclosed-landingpage/github/alexPertise/portalclosed-landingpage/2021-03-05_15-44/evolupharma.uxpertise 1.png",
+      "NEXT PORTAL": "IMAGE LINK"
+    };
+
+    console.log(this.companyLogo[this.currentUrl]);
   }
 
   public changeCurrentLanguage() {
